@@ -53,6 +53,7 @@ require('packer').startup(function(use)
       let finance = { 'name': 'finance', 'path': '~/wiki/finance', 'auto_toc': 1, 'syntax': 'markdown', 'ext': 'md' }
       let g:vimwiki_list = [ctfo, IT, personal, finance]
       let g:vimwiki_html_header_numbering = 1
+  let g:vimwiki_markdown_link_ext = 1
     ]])
     vim.keymap.set('n', '<leader>p', function () require('telescope.builtin').find_files({ prompt_title = "< Wiki >", cwd = wiki_home }) end, { desc = 'Search Wiki' })
     vim.keymap.set('n', '<leader>g', function () require('telescope.builtin').live_grep({ prompt_title = "< Search In Wiki >", cwd = wiki_home }) end, { desc = 'Grep Wiki Content'})
