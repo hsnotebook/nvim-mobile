@@ -47,13 +47,10 @@ require('packer').startup(function(use)
   use { 'vimwiki/vimwiki', config = function ()
     local wiki_home =  "~/wiki"
     vim.cmd([[
-      let ctfo = { 'name': 'ctfo', 'path': '~/wiki/ctfo', 'auto_toc': 1, 'syntax': 'markdown', 'ext': 'md' }
-      let IT = { 'name': 'IT', 'path': '~/wiki/IT', 'auto_toc': 1, 'syntax': 'markdown', 'ext': 'md' }
-      let personal = { 'name': 'personal', 'path': '~/wiki/personal', 'auto_toc': 1, 'syntax': 'markdown', 'ext': 'md' }
-      let finance = { 'name': 'finance', 'path': '~/wiki/finance', 'auto_toc': 1, 'syntax': 'markdown', 'ext': 'md' }
-      let g:vimwiki_list = [ctfo, IT, personal, finance]
+      let wiki = { 'name': 'wiki', 'path': '~/wiki', 'auto_toc': 1, 'syntax': 'markdown', 'ext': 'md' }
+      let g:vimwiki_list = [wiki]
       let g:vimwiki_html_header_numbering = 1
-  let g:vimwiki_markdown_link_ext = 1
+      let g:vimwiki_markdown_link_ext = 1
     ]])
     vim.keymap.set('n', '<leader>p', function () require('telescope.builtin').find_files({ prompt_title = "< Wiki >", cwd = wiki_home }) end, { desc = 'Search Wiki' })
     vim.keymap.set('n', '<leader>g', function () require('telescope.builtin').live_grep({ prompt_title = "< Search In Wiki >", cwd = wiki_home }) end, { desc = 'Grep Wiki Content'})
